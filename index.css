@@ -1,0 +1,392 @@
+:root
+{
+    --red: red;
+    --black:black;
+    --white:white;
+    --text-color:var(--black);
+    --hover-color:var(--white);
+    --dark-red: rgb(169, 0, 0);
+    --darker-red: rgb(83, 0, 0);
+    --light-red: rgb(255, 92, 92);
+    --deg45-red-gradient: linear-gradient(45deg, var(--dark-red), var(--red), var(--dark-red));
+    --linear-red-gradient: linear-gradient(to right, var(--dark-red), var(--red), var(--dark-red));
+    --deg45-dark-gradient: linear-gradient(45deg, var(--darker-red), var(--dark-red), var(--darker-red));
+    --linear-dark-gradient: linear-gradient(to right, var(--darker-red), var(--dark-red), var(--darker-red));
+    --deg45-darker-gradient: linear-gradient(45deg, var(--black), var(--darker-red), var(--black));
+    --linear-darker-gradient: linear-gradient(to right, var(--black), var(--darker-red), var(--black));
+}
+
+/*---ANIMATIONS---*/
+@keyframes  pulse/*Makes the object change size in a pulsating motion*/
+{
+    0%, 100%{transform: scale(0.95);}
+    50%{transform: scale(1);}
+    /*animation: pulse 2s ease-in-out infinite;*/
+}
+@keyframes bounce
+{
+    0%, 100%{transform: translateY(0);}
+    50%{transform: translateY(-10px);}
+    /*animation: bounce 2s ease-in-out infinite;*/
+}
+@keyframes revolution
+{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+    /*animation: revolution 2s infinite linear;*/
+}
+@keyframes antirevolution
+{
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(-360deg);}
+    /*animation: antirevolution 2s infinite linear;*/
+}
+@keyframes slidein
+{
+    0%{transform: translateX(-100%);}
+    100%{transform: translateX(0);}
+    /*animation: slidein 2s forwards infinite;*/
+}
+@keyframes slideup
+{
+    0%{transform: translateY(-100%);}
+    100%{transform: translateY(0);}
+    /*animation: slidein 2s forwards infinite;*/
+}
+@keyframes slideleft /*Slides In from the far Left*/
+{
+    0%{transform: translateX(-100%);}
+    100%{transform: translateX(0);}
+}
+@keyframes slideright
+{
+    0%{transform: translateX(100%);}
+    100%{transform: translateX(0);}
+}
+@keyframes zoomfade
+{
+    0%
+    {
+        transform: scaleX(0.1);
+        opacity: 0;
+    }
+    50%
+    {
+        transform: scaleX(0.8);
+        opacity: 0.5;
+    }
+    100%
+    {
+        transform: translateX(1);
+        opacity: 1;
+    }
+}
+@keyframes downbounce
+{
+    0%{transform: translateY(-100%);}
+    60%{transform: translateY(10%);}
+    80%{transform: translateY(-10%);}
+    100%{transform: translateY(0);}
+}
+@keyframes slidedown
+{
+    0%{transform: translateY(-150%);}
+    100%{transform: translateY(0);}
+}
+@keyframes mirror
+{
+    0%{transform: rotateY(0);}
+    50%{transform: rotateY(360deg);}
+    100%{transform: rotateY(0);}
+}
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+html
+{
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 5dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+}
+body
+{
+    margin: 0px;
+    font-size: large;
+    color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100dvw;
+    gap: 5dvh;
+}
+#taskbar
+{
+    width: 95dvw;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    scroll-snap-align: start;
+    justify-content: space-around;
+    animation: downbounce 2s forwards ease-out;
+    background: var(--linear-dark-gradient);
+    border-radius: 15px;
+    box-shadow: 0 0 35px var(--light-red);
+
+}
+#taskbar img
+{
+    height: 100%;
+    animation: pulse 2s ease-in-out forwards infinite;
+}
+main, section
+{
+    background:var(--deg45-dark-gradient);
+    border-radius: 20px;
+}
+.tabs
+{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    font-weight: 900;
+    list-style: none;
+    font-size: larger;
+    flex-direction: row;
+    align-items: center;
+    color: var(--text-color);
+    justify-content: space-between;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.tabs li a
+{
+    text-decoration: none;
+    color: black;
+}
+.tabs li a:hover
+{
+    color: white;
+    transition: 0.4s;
+}
+#cover-page
+{
+    width: 95dvw;
+    height: 90dvh;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    border-radius: 15px;
+    border-radius: 20px;
+    flex-direction: column;
+    scroll-snap-align: start;
+    justify-content: space-around;
+    border: solid 1px var(--light-red);
+    box-shadow: 0 0 35px inset var(--darker-red);
+}
+
+button img
+{
+    width: 100px;
+}
+.flame
+{
+    width: 150px;
+    animation: downbounce 2s forwards ease-in-out;
+}
+.flame img
+{
+    width: 100%;
+    transition: 5s;
+    aspect-ratio: 1/1;
+    animation: mirror 3s ease-in-out forwards infinite;
+}
+.intro
+{
+    gap: 10px;
+    width: 80dvw;
+    display: flex;
+    font-weight: 900;
+    flex-direction: row;
+    font-size: xx-large;
+    align-items: center;
+    justify-content: center;
+    animation: slideleft 1s forwards ease-out;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.intro .tash
+{
+    color: yellow;
+    animation-delay: 0.5s;
+    animation: slideleft 1s forwards ease-out;
+    font-family: 'Courier New', Courier, monospace;
+}
+.intro .designs
+{
+    color: black;
+    animation-delay: 0.5s;
+    animation: slideleft 1s forwards ease-out;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.name
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideup 1s ease-out forwards;
+}
+.name img
+{
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 35px var(--darker-red);
+    animation: pulse 2s ease-in-out forwards infinite;
+}
+.scroll-down
+{
+    color: white;
+    font-weight: 800;
+    font-size: x-large;
+    text-shadow: 2px 2px black;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    animation: bounce 2s ease-in-out forwards infinite;
+}
+
+#bio
+{
+    gap: 10px;
+    height: 90dvh;
+    width: 95dvw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    scroll-snap-align: start;
+    justify-content: center;
+}
+#bio span
+{
+    height: 40%;
+    display: flex;
+    font-size:large;
+    font-weight: 500;
+    align-items: start;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: 20px;
+}
+.title
+{
+    font-size: xx-large;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.bio
+{
+    gap: 10px;
+    width: 90%;
+    height: 40%;
+    border-radius: 15px;
+    animation-timeline: view();
+    animation: slideleft 2s linear;
+    animation-range: entry cover 40%;
+    border: solid 1px var(--light-red);
+    box-shadow: 0 0 35px inset var(--light-red);
+}
+.services
+{
+    width: 90%;
+    height: 60%;
+    border-radius: 15px;
+    box-shadow: 0 0 35px inset var(--light-red);
+}
+.list
+{
+    list-style: none;
+}
+.item img
+{
+    width: 20px;
+    aspect-ratio: 1/1;
+}
+#projects
+{
+    width: 95dvw;
+    height: 90dvh;
+    overflow-y: scroll;
+    scroll-snap-align: start;
+}
+.projects
+{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 90%;
+    align-items: center;
+    justify-content: center;
+}
+.image
+{
+    margin: 10px;
+    flex: 1 0 400px;
+    list-style-type: none;
+}
+.image img
+{
+    width: 100%;
+    border-radius: 20px;
+}
+
+#contacts
+{
+    width: 95dvw;
+    height: 90dvh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    scroll-snap-align: start;
+    justify-content: space-evenly;
+}
+.text
+{
+    font-weight: 500;
+    font-size: x-large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.links
+{
+    width: 90%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    list-style-type: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    box-shadow: 0px 0px 10px 5px inset var(--darker-red);
+}
+.links li
+{
+    width: 80%;
+    display: flex;
+    font-weight: 500;
+    font-size: larger;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.links img
+{
+    width: 30px;
+}
