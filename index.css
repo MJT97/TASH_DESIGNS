@@ -282,20 +282,20 @@ button img
 {
     height: 40%;
     display: flex;
+    padding: 20px;
     font-size:large;
     font-weight: 500;
     align-items: start;
     flex-direction: column;
     justify-content: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding: 20px;
 }
 .title
 {
-    font-size: xx-large;
     width: 100%;
-    height: fit-content;
     display: flex;
+    font-size: xx-large;
+    height: fit-content;
     align-items: center;
     justify-content: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -327,6 +327,12 @@ button img
 {
     list-style: none;
 }
+.item
+{
+    animation: slideleft 2s linear;
+    animation-timeline: view();
+    animation-range: entry cover 15%;
+}
 .item img
 {
     width: 20px;
@@ -348,7 +354,7 @@ button img
     justify-content: center;
     animation: slideleft 2s linear;
     animation-timeline: view();
-    animation-range: entry cover 30%;
+    animation-range: entry cover 10%;
 }
 .image
 {
@@ -428,6 +434,9 @@ button img
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: zoomfade forwards;
+    animation-timeline: scroll();
+    animation-range: entry cover 30%;
 }
 .up-arrow img
 {
@@ -526,7 +535,7 @@ button img
         display: flex;
         flex-direction: column;
         height: 250px;
-        margin-top: 10%;
+        margin-top: 15%;
         margin-left: 55%;
         align-items: center;
         border-radius: 10px;
