@@ -11,6 +11,7 @@
     --deg45-red-gradient: linear-gradient(45deg, var(--dark-red), var(--red), var(--dark-red));
     --linear-red-gradient: linear-gradient(to right, var(--dark-red), var(--red), var(--dark-red));
     --deg45-dark-gradient: linear-gradient(45deg, var(--darker-red), var(--dark-red), var(--darker-red));
+    --rev-deg45-dark-gradient: linear-gradient(135deg, var(--darker-red), var(--dark-red), var(--darker-red));
     --linear-dark-gradient: linear-gradient(to right, var(--darker-red), var(--dark-red), var(--darker-red));
     --deg45-darker-gradient: linear-gradient(45deg, var(--black), var(--darker-red), var(--black));
     --linear-darker-gradient: linear-gradient(to right, var(--black), var(--darker-red), var(--black));
@@ -133,6 +134,7 @@ body
     height: 50px;
     display: flex;
     flex-direction: row;
+    margin-top: 10px;
     align-items: center;
     scroll-snap-align: start;
     justify-content: space-around;
@@ -140,7 +142,7 @@ body
     background: var(--linear-dark-gradient);
     border-radius: 15px;
     box-shadow: 0 0 35px var(--light-red);
-
+    overflow: hidden;
 }
 #taskbar img
 {
@@ -389,4 +391,138 @@ button img
 .links img
 {
     width: 30px;
+}
+#tab
+{
+    display: none;
+}
+.tabs2
+{
+    display: none;
+}
+.up-arrow
+{
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    bottom: 5px;
+    left: 5px;
+    border: solid black;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.up-arrow img
+{
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+.up-arrow a
+{
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+.up-arrow :hover
+{
+    width: 50px;
+    height: 50px;
+}
+@media screen and (max-width:750px)
+{
+   .tabs
+   {
+    display: none;
+    opacity: 0;
+    width: 0;
+   }
+   .tabs2
+    {
+        width: 50px;
+        height: 100%;
+        display: flex;
+        overflow: visible;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+    }
+    button
+    {
+        width: 90%;
+        height: 70%;
+        border: none;   
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background-color: transparent;
+    }
+   .burger
+    {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        overflow: hidden;
+        align-items: center;
+        border-radius: 10px;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+   .burger .slice
+    {
+        width: 95%;
+        height: 25%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(173, 173, 12);
+    }
+   .nav-list
+    {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        font-weight: 900;
+        list-style: none;
+        font-size: larger;
+        align-items: center;
+        flex-direction: column;
+        color: var(--text-color);
+        justify-content: space-evenly;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+    .nav-list li a
+    {
+        color: black;
+        text-decoration: none;
+    }
+    .nav-list li a:hover
+    {
+        color: rgb(173, 173, 12);
+        transition: 0.4s;
+    }
+
+    #my-popover
+    {
+        width: 40%;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        height: 250px;
+        margin-top: 10%;
+        margin-left: 55%;
+        align-items: center;
+        border-radius: 10px;
+        animation: 0.3s;
+        justify-content: center;
+        background: var(--rev-deg45-dark-gradient)
+    }
+    #my-popover img
+    {
+        width: 80%;
+        height: auto;
+        animation: pulse 2s ease-in-out forwards infinite;
+    }
 }
