@@ -434,7 +434,7 @@ button img
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: zoomfade forwards;
+    animation: zoomfade linear;
     animation-timeline: scroll();
     animation-range: entry cover 30%;
 }
